@@ -1,0 +1,197 @@
+.overlay-admin-login-black {
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(51, 51, 51, 0.699);
+    visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay-admin-login {
+    width: 500px;
+    height: 500px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.overlay-admin-login .header span {
+    margin-right: 10px;
+    font-size: 25px;
+    cursor: pointer;
+    transition: color 150ms;
+    user-select: none;
+}
+.overlay-admin-login .header span:hover {
+    color: rgb(117, 117, 117);
+}
+
+
+.overlay-admin-login .body {
+    height: 90%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    /* justify-content: space-around; */
+}
+
+.overlay-admin-login .body h3 {
+    font-size: 3vw;
+    color: #212529;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.overlay-admin-login .body h3 span {
+    color: #b1b493;
+}
+
+.overlay-admin-login .body form{
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    font-size: larger;
+}
+
+.overlay-admin-login .body form input {
+    width: 60%;
+    padding: 10px;
+    box-sizing: border-box;
+    outline: none;
+    border: 2px solid #b1b493;
+    border-radius: 10px;
+}
+
+.overlay-admin-login .body form button {
+    width: 60%;
+    background-color: #b1b493;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+    outline: none;
+    transition: background-color 250ms;
+}
+
+.overlay-admin-login .body form button:hover {
+    background-color: #9fa183;
+}
+
+.overlay-admin-login .body form p.error-message {
+    margin: 0;
+    color: red;
+    visibility: hidden;
+}
+
+#admin-tool-button
+{
+    position: fixed;
+    top: 200px;
+    left: -150px;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #9fa183;
+    color: white;
+    cursor: pointer;
+    transition: left 250ms;
+    z-index: 1000;
+    border: none;
+    width: 200px;
+    outline: none;
+    display: none;
+}
+
+#admin-tool-button:hover {
+    left: 0px;
+}
+
+.rate-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rate-container {
+    width: 60%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 50px;
+    grid-row-gap: 50px;
+}
+
+.rate-container .rate-card {
+    height: 200px;
+    border-radius: 5px;
+    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
+    font-family: "Poppins", Arial, sans-serif;
+    text-transform: uppercase;
+    padding: 0 20px 0 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: #b1b493;
+}
+
+.rate-container .rate-card h3 {
+    font-weight: bold;
+    color: rgb(75, 75, 75);
+}
+
+.rate-container .rate-card table {
+    width: 100%;
+}
+
+.rate-label {
+    text-align: start;
+}
+.rate-value {
+    text-align: end;
+}
+
+.rate-bear {
+    color: red;
+}
+
+.rate-bull {
+    color: green;
+}
+
+#admin-panel {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 500px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    padding-top: 10px;
+    box-sizing: border-box;
+    z-index: 1000;
+    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
+}
+
+#admin-panel .header
+{
+    font-size: 1.3vw;
+    user-select: none;
+    cursor: pointer;
+}
