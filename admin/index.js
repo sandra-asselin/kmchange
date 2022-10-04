@@ -14,6 +14,7 @@ $(document).ready(() => {
         $('#username-field').val("");
         $('#password-field').val("");
     })
+
 });
 
 function adminOverlayOpen() {
@@ -28,6 +29,11 @@ function adminOverlayClose() {
 
 function handleClicks() 
 {
+    $('#admin-tool-button').click(() => {
+         
+    });
+
+    // Admin login
     $('#admin-panel-link').click(() => {
         adminOverlayOpen()
     });
@@ -41,8 +47,30 @@ function handleClicks()
             adminOverlayClose()
         }
     })
+    // ///////////
+
 }
 
+function update(token, id, oz) {
+    $.ajax({
+        url: "http://localhost:5500/rate",
+                dataType: "json",
+                type: "PUT",
+                headers: {'Content-Type': 'application/x-www-form-urlencoded', 'token': token},
+                contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+                data: `id=${id}&oz=${oz}`,
+                success: data => {
+                    console.success("Success");
+
+                },
+                error: error => {
+                    console.error(error);
+                    $('#login-button').text("Connexion")
+                    $('#admin-login-error').text(error.responseJSON.message)
+                    $('#admin-login-error').css('visibility', 'visible');
+                }
+    })
+}
 
 class AdminPanel {
     constructor()
@@ -58,14 +86,23 @@ class AdminPanel {
         
     }
 
-    login(username, password) {
-        if (this.token != null) 
-        {
-            return false;
-        }
+    update() {
+        alert('Test');
+    }
+
+    login(username, password)
+    {
         $('#login-button').html(`<div class="spinner-border" role="status">
         <span class="sr-only">Loading...</span>
       </div>`)
+        
+        if (username == "" || password == "")
+        {
+            $('#login-button').text("Connexion")
+            $('#admin-login-error').text("Les champs doivent être remplis");
+            $('#admin-login-error').css('visibility', 'visible');
+            return;
+        }
 
         setTimeout(() => {
             $.ajax({
@@ -77,8 +114,12 @@ class AdminPanel {
                 data: `username=${username}&password=${password}`,
                 success: data => {
                     this.token = data.token;
-                    $('#login-button').text("Connexion")
-                    this.showAdmin();
+                    Cookies.set('token', data.token, { expires: 1 });
+                    $('#update-or-rate-button').css('display', 'block');
+                    $('#update-or-rate-column').css('display', 'none');
+                    $('#update-or-rate-input').css('display', 'block');
+                    adminOverlayClose();
+
                 },
                 error: error => {
                     console.error(error);

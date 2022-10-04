@@ -8,7 +8,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
+	
 	<link rel="stylesheet" href="css/animate.css">
 	
 	<link rel="stylesheet" href="css/owl.carousel.min.css">
@@ -17,31 +17,37 @@
 	
 	<link rel="stylesheet" href="css/flaticon.css">
 	<link rel="stylesheet" href="css/style.css">
-
-	<!-- Admin Framework © Clément Caillat -->
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.1/js.cookie.min.js"></script>
+	<!-- @Dev Clément Caillat -->
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 	<link rel="stylesheet" href="./admin/admin.css">
 	<script src="./admin/index.js"></script>
+	<script src="./api.js"></script>
 	<!-- --------------------------------- -->
+
+
+	<script>
+		function updateRate()
+    	{
+			let token = Cookies.get('token');
+			let id = $('#update-or-rate-input').attr('data-id')
+			let oz = $('#update-or-rate-input').val();
+			
+			update(token, id, oz);
+
+    	}
+	</script>
+
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 	<button id="admin-tool-button">ADMIN</button>
-	<div id="admin-panel">
-		<div class="header">
-			<span id="close-admin-panel">✖</span>
-		</div>
-		<div class="body">
-			<form>
-				
-			</form>
-		</div>
-	</div>
 	<div id="admin-login-overlay" class="overlay-admin-login-black">
 		<div class="overlay-admin-login">
 			<div class="header">
-				<span id="close-admin-overlay">✖</span>
+				<span id="close-admin-overlay" class="close-button">✖</span>
 			</div>
-			<div class="body">
+			<div class="body" id="admin-login-body">
 				<h3 class="admin-brand">KM <span>Change</span></h3>
 				<form>
 					<input type="text" name="username" id="username-field" placeholder="Nom d'utilisateur">
@@ -199,92 +205,8 @@
 				<div class="col-md-12 heading-section text-center ftco-animate rate-center">
 					<span class="subheading editable">Cours</span>
 					<h2 class="mb-4 editable">Taux de change</h2>
-					<p class="editable">Les taux de change sont mis à jours tous les jours</p>
-					<div class="rate-container">
-						<div class="rate-card">
-							<h3>Or</h3>
-							<table>
-								<tr>
-									<td class="rate-label">Once</td>
-									<td class="rate-value">12 €</td>
-								</tr>
-								<tr>
-									<td class="rate-label">Gramme</td>
-									<td class="rate-value">500 €</td>
-								</tr>
-								<tr>
-									<td class="rate-label">Kilogramme</td>
-									<td class="rate-value">12000 €</td>
-								</tr>
-								<tr>
-									<td class="rate-label">Variation</td>
-									<td class="rate-value rate-bear">-0.50 %</td>
-								</tr>
-							</table>
-						</div>
-						<div class="rate-card">
-							<h3>Argent</h3>
-							<table>
-								<tr>
-									<td class="rate-label">Once</td>
-									<td class="rate-value">10 €</td>
-								</tr>
-								<tr>
-									<td class="rate-label">Gramme</td>
-									<td class="rate-value">300 €</td>
-								</tr>
-								<tr>
-									<td class="rate-label">Kilogramme</td>
-									<td class="rate-value">6000 €</td>
-								</tr>
-								<tr>
-									<td class="rate-label">Variation</td>
-									<td class="rate-value rate-bull">+0.03 %</td>
-								</tr>
-							</table>
-						</div>
-						<div class="rate-card">
-							<h3>Argent</h3>
-							<table>
-								<tr>
-									<td class="rate-label">Once</td>
-									<td class="rate-value">10 €</td>
-								</tr>
-								<tr>
-									<td class="rate-label">Gramme</td>
-									<td class="rate-value">300 €</td>
-								</tr>
-								<tr>
-									<td class="rate-label">Kilogramme</td>
-									<td class="rate-value">6000 €</td>
-								</tr>
-								<tr>
-									<td class="rate-label">Variation</td>
-									<td class="rate-value rate-bull">+0.03 %</td>
-								</tr>
-							</table>
-						</div>
-						<div class="rate-card">
-							<h3>Argent</h3>
-							<table>
-								<tr>
-									<td class="rate-label">Once</td>
-									<td class="rate-value">10 €</td>
-								</tr>
-								<tr>
-									<td class="rate-label">Gramme</td>
-									<td class="rate-value">300 €</td>
-								</tr>
-								<tr>
-									<td class="rate-label">Kilogramme</td>
-									<td class="rate-value">6000 €</td>
-								</tr>
-								<tr>
-									<td class="rate-label">Variation</td>
-									<td class="rate-value rate-bull">+0.03 %</td>
-								</tr>
-							</table>
-						</div>
+					<div class="rate-container rate-center">
+						
 					</div>
 				</div>
 			</div>
@@ -460,7 +382,7 @@
 							<li><a href="#aabout-section"><span class="fa fa-chevron-right mr-2"></span>A propos</a></li>
 							<li><a href="#skills-section"><span class="fa fa-chevron-right mr-2"></span>Bureau de change</a></li>
 							<li><a href="#contact-section"><span class="fa fa-chevron-right mr-2"></span>Contact</a></li>
-							<li><a id="admin-panel-link" href="#admin-panel-link"><span class="fa fa-chevron-right mr-2"></span>Admin</a></li>
+							<li><a id="admin-panel-link"><span class="fa fa-chevron-right mr-2"></span>Admin</a></li>
 						</ul>
 					</div>
 				</div>
