@@ -169,7 +169,6 @@ img {
   border-style: none; }
 
 svg {
-  overflow: hidden;
   vertical-align: middle; }
 
 table {
@@ -9325,94 +9324,6 @@ textarea.form-control {
 #section-counter {
   position: relative;
   z-index: 0; }
-
-.ftco-counter {
-  overflow-x: hidden;
-  position: relative;
-  padding: 5em 0; }
-  @media (max-width: 1199.98px) {
-    .ftco-counter {
-      background-position: center center !important; } }
-  .ftco-counter .block-18 {
-    display: block;
-    width: 100%; }
-    @media (max-width: 991.98px) {
-      .ftco-counter .block-18 {
-        margin-bottom: 2em; } }
-  .ftco-counter .icon {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: #c0c0c0;
-    position: relative; }
-    .ftco-counter .icon span {
-      font-size: 40px;
-      color: #fff; }
-  .ftco-counter .text {
-    width: calc(100% - 60px);
-    position: relative;
-    padding-left: 15px; }
-    @media (max-width: 767.98px) {
-      .ftco-counter .text {
-        width: 100%; } }
-    .ftco-counter .text .number {
-      line-height: 1;
-      font-weight: 700;
-      font-size: 30px;
-      color: rgba(0, 0, 0, 0.8);
-      display: block;
-      margin-bottom: 4px; }
-    .ftco-counter .text span {
-      font-weight: 600;
-      font-size: 15px;
-      color: #c0c0c0;
-      text-transform: uppercase; }
-  @media (max-width: 767.98px) {
-    .ftco-counter .counter-wrap {
-      margin-bottom: 20px; } }
-
-.block-20 {
-  overflow: hidden;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  position: relative;
-  display: block;
-  width: 100%;
-  height: 300px; }
-
-.blog-entry {
-  position: relative; }
-  @media (min-width: 768px) {
-    .blog-entry {
-      margin-bottom: 30px; } }
-  @media (max-width: 767.98px) {
-    .blog-entry {
-      margin-bottom: 30px; } }
-  .blog-entry .text {
-    width: 100%;
-    margin: 0 auto; }
-    .blog-entry .text .heading {
-      font-size: 20px;
-      margin-bottom: 16px;
-      font-weight: 500; }
-      .blog-entry .text .heading a {
-        color: #c0c0c0; }
-        .blog-entry .text .heading a:hover, .blog-entry .text .heading a:focus, .blog-entry .text .heading a:active {
-          color: #c0c0c0; }
-  .blog-entry .meta {
-    display: inline-block;
-    margin-right: 5px;
-    margin-bottom: 0;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 2px; }
-    .blog-entry .meta span {
-      color: #c0c0c0; }
-    .blog-entry .meta a {
-      color: #c0c0c0; }
-      .blog-entry .meta a:hover {
-        color: #c0c0c0; }
 
 .block-23 ul {
   padding: 0; }
